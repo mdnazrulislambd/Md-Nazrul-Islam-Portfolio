@@ -1,0 +1,30 @@
+﻿# Visiul Studio
+.vs/
+*.user
+*.suo
+
+#Build output
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.sin.docstates
+
+# Rider
+.idea/
+
+# Test results 
+TestResults/
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Publish output
+publish/
