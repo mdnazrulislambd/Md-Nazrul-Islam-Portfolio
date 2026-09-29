@@ -1,8 +1,12 @@
+using Md.Nazrul.Islam.Portfolio.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<SiteInfoService>();
 
+var siteNamem = builder.Configuration["PortfolioSettings:SiteName"];
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
