@@ -1,6 +1,13 @@
+using Md.Nazrul.Islam.Portfolio.Data;
+using Microsoft.EntityFrameworkCore;
 using Md.Nazrul.Islam.Portfolio.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// DateBase Connection
+builder.Services.AddDbContext<PortfolioDbContext>(options =>
+options.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
