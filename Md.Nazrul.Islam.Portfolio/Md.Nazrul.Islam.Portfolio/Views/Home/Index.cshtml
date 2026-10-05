@@ -1,5 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@if (ViewBag.DatabaseConnected == true)
+{
+    <div clss="alert alert-success">
+        Datebase connection successful!
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        Datebase connection failed!
+    </div>
+}
+
+    @{
+        ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">

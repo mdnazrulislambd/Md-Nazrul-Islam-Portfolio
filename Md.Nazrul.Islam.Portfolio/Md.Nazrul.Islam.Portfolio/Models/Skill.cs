@@ -4,6 +4,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 {
     public class Skill
     {
+        [Key]
         public int SkillId { get; set; }
 
         public int CategoryId { get; set; }

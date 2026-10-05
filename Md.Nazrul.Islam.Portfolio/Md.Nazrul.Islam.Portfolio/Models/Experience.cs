@@ -4,6 +4,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 {
     public class Experience
     {
+        [Key]
         public int ExperienceId { get; set; }
 
         [Required]
@@ -16,7 +17,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 
         [MaxLength(200)]
         public string? Location { get; set; }
-        
+
         [Required]
         public DateTime StartDate { get; set; }
 

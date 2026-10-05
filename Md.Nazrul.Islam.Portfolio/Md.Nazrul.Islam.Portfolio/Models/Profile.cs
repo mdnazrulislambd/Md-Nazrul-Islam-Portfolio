@@ -4,6 +4,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 {
     public class Profile
     {
+        [Key]
         public int ProfileId { get; set; }
 
         [Required]
@@ -13,12 +14,13 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         [Required]
         [MaxLength(250)]
         public string ProfessionalTitle {  get; set; } = string.Empty;
-        [Required]
 
+        [Required]
         public string? ProfileImageUrl { get; set; }
 
         [MaxLength(500)]
         public string CVUrl { get; set; }
+
         [Required]
         [MaxLength(255)]
         public string Email { get; set; } = string.Empty;

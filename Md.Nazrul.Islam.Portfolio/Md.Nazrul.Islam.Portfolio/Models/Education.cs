@@ -4,6 +4,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 {
     public class Education
     {
+        [Key]
         public int EducationId { get; set; }
 
         [Required]

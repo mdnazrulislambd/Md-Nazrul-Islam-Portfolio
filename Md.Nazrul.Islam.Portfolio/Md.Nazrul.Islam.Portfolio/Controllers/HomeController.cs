@@ -1,7 +1,8 @@
-using System.Diagnostics;
+using Md.Nazrul.Islam.Portfolio.Data;
 using Md.Nazrul.Islam.Portfolio.Models;
-using Microsoft.AspNetCore.Mvc;
 using Md.Nazrul.Islam.Portfolio.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace Md.Nazrul.Islam.Portfolio.Controllers
 {
@@ -9,18 +10,22 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly SiteInfoService _siteInfoService;
+        private readonly PortfolioDbContext _context;
 
         public HomeController(
             ILogger<HomeController> logger,
-            SiteInfoService siteInfoService)
+            SiteInfoService siteInfoService,
+            PortfolioDbContext context)
         {
             _logger = logger;
             _siteInfoService = siteInfoService;
+            _context = context;
         }
 
         public IActionResult Index()
         {
             ViewBag.SiteName = _siteInfoService.GetSiteName();
+            ViewBag.DatebaseConnected = _context.Database.CanConnect();
 
             return View();
         }
