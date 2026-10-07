@@ -2,7 +2,9 @@ using Md.Nazrul.Islam.Portfolio.Data;
 using Md.Nazrul.Islam.Portfolio.Models;
 using Md.Nazrul.Islam.Portfolio.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Md.Nazrul.Islam.Portfolio.Controllers
 {
@@ -22,10 +24,12 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewBag.SiteName = _siteInfoService.GetSiteName();
-            ViewBag.DatebaseConnected = _context.Database.CanConnect();
+            //tamp 
+            var profileCount = await _context.Profiles.CountAsync();
+            ViewBag.ProfileCount = profileCount;
 
             return View();
         }
@@ -36,16 +40,38 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
         }
 
         [ResponseCache(
-            Duration = 0, 
-            Location = ResponseCacheLocation.None, 
+            Duration = 0,
+            Location = ResponseCacheLocation.None,
             NoStore = true)]
         public IActionResult Error()
         {
             return View(
-                new ErrorViewModel 
-                { RequestId = Activity.Current?.Id 
-                ?? HttpContext.TraceIdentifier 
+                new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id
+                ?? HttpContext.TraceIdentifier
                 });
+        }
+
+        public async Task<IActionResult> TestDatabase()
+        {
+            var testProfile = new Profile
+            {
+                FullName = "Test User",
+                ProfessionalTitle = "Database Test",
+                ProfileImageUrl = "test-profile.jpg",
+                CVUrl = "test-cv.pdf",
+                Email = "test@example.com",
+                Phone = "01234567891",
+                Location = "Test Location",
+                UpdatedAt = DateTime.Now.ToString()
+            };
+
+            _context.Profiles.Add(testProfile);
+
+            await _context.SaveChangesAsync();
+
+            return Content("EF Core INSERT test successful!");
         }
     }
 }

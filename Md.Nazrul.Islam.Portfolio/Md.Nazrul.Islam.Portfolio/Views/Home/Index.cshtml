@@ -1,19 +1,7 @@
-﻿@if (ViewBag.DatabaseConnected == true)
-{
-    <div clss="alert alert-success">
-        Datebase connection successful!
-    </div>
-}
-else
-{
-    <div class="alert alert-danger">
-        Datebase connection failed!
-    </div>
-}
-
-    @{
-        ViewData["Title"] = "Home Page";
-}
+﻿<div>
+    <h3>Datebase Test</h3>
+    <p>Profile Records: @ViewBag.ProfileCount</p>
+</div>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
