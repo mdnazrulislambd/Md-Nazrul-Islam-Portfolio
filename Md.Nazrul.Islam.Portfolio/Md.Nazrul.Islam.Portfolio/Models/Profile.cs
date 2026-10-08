@@ -31,6 +31,6 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         [MaxLength(200)]
         public string? Location { get; set; }
 
-        public string UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

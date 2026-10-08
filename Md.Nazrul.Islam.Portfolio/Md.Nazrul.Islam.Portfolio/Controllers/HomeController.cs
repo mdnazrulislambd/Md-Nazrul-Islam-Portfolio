@@ -24,13 +24,9 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             ViewBag.SiteName = _siteInfoService.GetSiteName();
-            //tamp 
-            var profileCount = await _context.Profiles.CountAsync();
-            ViewBag.ProfileCount = profileCount;
-
             return View();
         }
 
@@ -53,25 +49,7 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
                 });
         }
 
-        public async Task<IActionResult> TestDatabase()
-        {
-            var testProfile = new Profile
-            {
-                FullName = "Test User",
-                ProfessionalTitle = "Database Test",
-                ProfileImageUrl = "test-profile.jpg",
-                CVUrl = "test-cv.pdf",
-                Email = "test@example.com",
-                Phone = "01234567891",
-                Location = "Test Location",
-                UpdatedAt = DateTime.Now.ToString()
-            };
 
-            _context.Profiles.Add(testProfile);
-
-            await _context.SaveChangesAsync();
-
-            return Content("EF Core INSERT test successful!");
-        }
+        
     }
 }
