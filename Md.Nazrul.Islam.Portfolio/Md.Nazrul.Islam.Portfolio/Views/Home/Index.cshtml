@@ -194,3 +194,69 @@
         </div>
     </div>
 </section>
+
+                    <!-- Skills -->
+
+<section id="skills" class="skills-section">
+    <div class="container">
+        <p class="section-label">// Skills</p>
+        <h2 class="section-title">Technical & Professional Skills</h2>
+
+        @if (ViewBag.SkillCategories != null)
+        {
+            foreach (var categoty in ViewBag.SkillCategories)
+            {
+                <div class="skill-category">
+                    <h3>
+                        <span class="skill-prompt">&gt;_</span>
+                        @categoty.Name
+                    </h3>
+
+                    @if (categoty.Skills != null)
+                    {
+                        <div class="skills-grid">
+                            @foreach (var skill in categoty.Skills)
+                            {
+                                <article class="skill-card">
+                                    <h4>@skill.Name</h4>
+                                    <p>@skill.Description</p>
+                                </article>
+
+                            }
+                        </div>
+
+                    }
+                </div>
+
+            }
+        }
+    </div>
+</section>
+
+
+                        <!-- Tools Section-->
+
+<section id="tools" class="tools-section">
+    <div class="container">
+        <p class="section-label">// Tools</p>
+        <h2 class="section-title">Tools & Techonologies</h2>
+
+        <div class="tools-grid">
+            @if (ViewBag.Tools != null)
+            {
+                foreach (var tool in ViewBag.Tools)
+                {
+                    <article class="tool-card">
+                        <div class="tool-icon">
+                            <i class="@tool.IconClass" aria-hidden="true"></i>
+                        </div>
+
+                        <h3>@tool.Name</h3>
+                        <p class="tool-category">@tool.Category</p>
+                        <p class="tool-description">@tool.Description</p>
+                    </article>
+                }
+            }
+        </div>
+    </div>
+</section>

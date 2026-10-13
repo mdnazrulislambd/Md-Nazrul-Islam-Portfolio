@@ -33,11 +33,11 @@ namespace Md.Nazrul.Islam.Portfolio.Data
             modelBuilder.Entity<Profile>().ToTable("Profile");
             modelBuilder.Entity<Education>().ToTable("Education");
             modelBuilder.Entity<SkillCategory>().ToTable("SkillCategories");
-            modelBuilder.Entity<Skill>().ToTable("Skill");
+            modelBuilder.Entity<Skill>().ToTable("Skills");
             modelBuilder.Entity<Experience>().ToTable("Exprience");
             modelBuilder.Entity<Project>().ToTable("Project");
             modelBuilder.Entity<ProjectImage>().ToTable("ProjectImage");
-            modelBuilder.Entity<Tool>().ToTable("Tool");
+            modelBuilder.Entity<Tool>().ToTable("Tools");
             modelBuilder.Entity<Certification>().ToTable("Certifiction");
             modelBuilder.Entity<SocialLink>().ToTable("SocialLink");
             modelBuilder.Entity<ContactMessage>().ToTable("ContactMessage");

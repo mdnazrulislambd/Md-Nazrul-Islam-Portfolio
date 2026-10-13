@@ -18,6 +18,6 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 
         public bool IsActive { get; set; }
 
-        public ICollection<Skill> Skills { get; set; }
+        public ICollection<Skill> Skills { get; set; } = new List<Skill>();
     }
 }

@@ -24,9 +24,21 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewBag.SiteName = _siteInfoService.GetSiteName();
+            
+            ViewBag.SkillCategories = await _context.SkillCategories
+                .Where(c => c.IsActive)
+                .OrderBy(c => c.DisplayOrder)
+                .Include(c => c.Skills.Where(s => s.IsActive))
+                .ToListAsync();
+
+            ViewBag.Tools = await _context.Tool
+                .Where(t => t.IsActive)
+                .OrderBy(t => t.DisplayOrder)
+                .ToListAsync();
+
             return View();
         }
 
