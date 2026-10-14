@@ -38,13 +38,9 @@ body {
     overflow: hidden;
     padding: 80px 0;
     color: #f8fafc;
-    background:
-        radial-gradient(
-        circle at 85% 45%,
-        rgba(37, 99, 235, 0.16),
-        transparent 35%
-        ),
-        #0b1120;
+    background: radial-gradient( circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35% ), #0b1120;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
 }
 
 .hero-name {
@@ -281,11 +277,9 @@ body {
     position: relative;
     padding: 90px 0;
     color: #cbd5e1;
-    background:radial-gradient(
-        circle at 10% 20%,
-        rgba(20, 184, 166, 0.07),
-        transparent 35%
-        ),#031624;
+    background: radial-gradient( circle at 10% 20%, rgba(20, 184, 166, 0.07), transparent 35% ),#031624;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
     scroll-margin-top: 80px;
 }
 
@@ -378,6 +372,8 @@ body {
     padding: 90px 0;
     color: #cbd5e1;
     background: #061a29;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
     scroll-margin-top: 80px;
 }
 
@@ -500,6 +496,8 @@ body {
 .skills-section {
     padding: 90px 0;
     background: #061a23;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
     scroll-margin-top: 80px;
 }
 
@@ -582,6 +580,8 @@ body {
 .tools-section {
     padding: 90px 0;
     background: #031624;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
     scroll-margin-top: 80px;
 }
 
@@ -738,18 +738,26 @@ a {
 
 .experience-section {
     background: #031624;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
 }
 
 .projects-section {
     background: #061a29;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
 }
 
 .tools-section {
     background: #031624;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
 }
 
 .contact-section {
     background: #061a29;
+    background: radial-gradient(circle at 85% 45%, rgba(37, 99, 235, 0.16), transparent 35%), linear-gradient(rgba(44, 229, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.04) 1px, transparent 1px), #0b1120;
+    background-size: auto, 40px 40px, 40px 40px, auto;
 }
 
 .error-section,
@@ -1135,3 +1143,53 @@ a {
         transition: none;
     }
 }
+
+/* -- Typing Effect in the Hero -- */
+.typed-cursor {
+    margin-left: 2px;
+    color: #2ce5d4;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; }}
+
+@media (prefers-reduced-motion: reduce) {
+    .typed-cursor {
+        animation: none;
+    }
+}
+
+/* - Count Number -*/
+.stats-row {
+    display: grid;
+    grid-auto-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.stat {
+    padding: 18px;
+    border: 1px solid rgba(44, 229, 212, 0.16);
+    border-radius: 8px;
+    background: rgba(3, 22. 36, 0.6);
+    text-align: center;
+}
+
+.stat-number {
+    color: #2ce5d4;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.stat p {
+    margin: 6px 0 0;
+    color: #94a3b8;
+    font-size: 0.78rem;
+}
+
+@media (max-width: 575.98px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+    }
+}
+
