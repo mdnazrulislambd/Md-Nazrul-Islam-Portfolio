@@ -18,9 +18,9 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         [MaxLength(200)]
         public string? FieldOfStudy { get; set; }
 
-        public string? StartYear { get; set; }
+        public short? StartYear { get; set; }
 
-        public string? EndYear { get; set; }
+        public short? EndYear { get; set; }
 
         [MaxLength(50)]
         public string? Result { get; set; }

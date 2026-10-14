@@ -16,10 +16,13 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         public string ProfessionalTitle {  get; set; } = string.Empty;
 
         [Required]
+        public string Summary {  get; set; } = string.Empty;
+
+        [MaxLength(500)]
         public string? ProfileImageUrl { get; set; }
 
         [MaxLength(500)]
-        public string CVUrl { get; set; }
+        public string? CVUrl { get; set; }
 
         [Required]
         [MaxLength(255)]

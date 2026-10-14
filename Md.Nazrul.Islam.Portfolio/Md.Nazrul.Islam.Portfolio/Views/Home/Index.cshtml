@@ -1,25 +1,22 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home";
+    var profile = Model.profile;
+    var email = profile?.Email;
+    var phone = profile?.Phone;
 }
 
+<!-- Hero -->
 <section id="home" class="hero-section">
     <div class="container">
         <div class="row align-items-center gy-5">
 
-            <!-- Left: Introduction -->
             <div class="col-lg-7 hero-content">
+                <p class="hero-greeting">HELLO, I'M</p>
 
-                <p class="hero-greeting">
-                    HELLO, I'M
-                </p>
+                <h1 class="hero-name">@(profile?.FullName ?? "Md. Nazrul Islam")</h1>
 
-                <h1 class="hero-name">
-                    Md. Nazrul Islam
-                </h1>
-
-                <h2 class="hero-title">
-                    IT Support &amp; Computer Operations
-                </h2>
+                <h2 class="hero-title">IT Support &amp; Computer Operations</h2>
 
                 <p class="hero-specialties">
                     MIS &amp; Data Management
@@ -29,21 +26,17 @@
 
                 <p class="hero-description">
                     I bring together technology, data management, and
-                    operational experience to support reliable digital 
+                    operational experience to support reliable digital
                     workflows and efficient business operations.
                 </p>
 
                 <div class="hero-buttons">
                     <a href="/#projects" class="btn btn-primary hero-btn">
-                    View My Projects
-                    <span aria-hidden="true">&rarr;</span>
+                        View My Projects
+                        <span aria-hidden="true">&rarr;</span>
                     </a>
-
-                    <a href="/#contact" class="btn btn-outline-light hero-btn">
-                    Contact Me    
-                    </a>
-
-                    <a href="~/files/Md_Nazrul_Islam_CV.pdf" class="btn btn-outline-info hero-btn" download>
+                    <a href="/#contact" class="btn btn-outline-light hero-btn">Contact Me</a>
+                    <a href="@(profile?.CVUrl ?? "/files/Md_Nazrul_Islam_CV.pdf")" class="btn btn-outline-info hero-btn" download>
                         Download CV
                         <span aria-hidden="true">&darr;</span>
                     </a>
@@ -53,16 +46,14 @@
                     <span class="availability-dot"></span>
                     Open to professional opportunities
                 </div>
-
             </div>
 
-            <!-- Right: Profile Image -->
             <div class="col-lg-5 hero-image-column">
                 <div class="hero-image-frame">
                     <img src="~/images/nazrul-profile.jpg"
-                    asp-append-version="true"
-                    alt="Portrait of Md. Nazrul Islam"
-                    class="hero-profile-image" />
+                         asp-append-version="true"
+                         alt="Portrait of Md. Nazrul Islam"
+                         class="hero-profile-image" />
                 </div>
             </div>
 
@@ -70,193 +61,282 @@
     </div>
 </section>
 
-                    <!-- About Section -->
+<!-- About -->
 <section id="about" class="about-section">
     <div class="container">
-
         <p class="section-label">// About Me</p>
+        <h2 class="section-title">Professional Profile</h2>
 
-        <h2 class="section-title">
-            Professional Profile
-        </h2>
-
-        <div class="about-card">
+        <div class="about-card" data-reveal>
             <p>
                 Hello! I'm <strong>MD. NAZRUL ISLAM</strong>, an IT support
                 and computer operations professional with experience in
-                distributor operations, date management, sales reporting,
+                distributor operations, data management, sales reporting,
                 and office automation.
             </p>
 
             <p>
-                I am also developing my programing skills in C#, .NET
-                Framework, and Microsoft SQL Server as I continue to grow
+                I am also developing my programming skills in C#,
+                ASP.NET Core, and Microsoft SQL Server as I continue to grow
                 toward a more technology-focused career.
             </p>
 
             <div class="about-highlights">
-                <div class="about-highlight">
-                    <span class="highlight-symbol">&gt;_</span>
-                    <span>IT Support</span>
-                </div>
-
-                <div class="about-highlight">
-                    <span class="highlight-symbol">&gt;_</span>
-                    <span>Data Management</span>
-                </div>
-
-                <div class="about-highlight">
-                    <span class="highlight-symbol">&gt;_</span>
-                    <span>Programming Learner</span>
-                </div>
+                <div class="about-highlight"><span class="highlight-symbol">&gt;_</span><span>IT Support</span></div>
+                <div class="about-highlight"><span class="highlight-symbol">&gt;_</span><span>Data Management</span></div>
+                <div class="about-highlight"><span class="highlight-symbol">&gt;_</span><span>Programming Learner</span></div>
             </div>
         </div>
-
     </div>
 </section>
 
-                    <!-- Education Section -->
-
-
+<!-- Education (from database) -->
 <section id="education" class="education-section">
     <div class="container">
-
         <p class="section-label">// Education</p>
-
-        <h2 class="section-title">
-            Academic Background
-        </h2>
+        <h2 class="section-title">Academic Background</h2>
 
         <p class="education-intro">
-            My academic journey has helped me build a foundation 
+            My academic journey has helped me build a foundation
             in computer science, technology and general education.
         </p>
 
         <div class="education-timeline">
+            @foreach (var edu in Model.Educations)
+            {
+                <article class="education-card" data-reveal>
+                    <div class="education-card-header">
+                        <span class="education-marker">&gt;_</span>
+                        <span class="education-period">@edu.StartYear &ndash; @(edu.EndYear?.ToString() ?? "Present")</span>
+                    </div>
 
-            <!-- Diploma -->
-            <article class="education-card">
-                <div class="education-card-header">
-                    <span class="education-marker">&gt;_</span>
-                    <span class="education-period">2024 - 2025</span>
-                </div>
+                    <h3>@edu.Degree</h3>
+                    <p class="education-institution">@edu.Institution</p>
 
-                <h3>Diploma in Computer Science and Application</h3>
-
-                <p class="education-institution">
-                    Bangladesh Open University
-                </p>
-
-                <div class="education-result">
-                    <span>CGPA</span>
-                    <strong>2.84 / 4.00</strong>
-                </div>
-            </article>
-
-            <!-- HSC -->
-            <article class="education-card">
-                <div class="education-card-header">
-                    <span class="education-marker">&gt;_</span>
-                    <span class="education-period">2018 - 2020</span>
-                </div>
-
-                <h3>Higher Secondary Cerificate (HSC)</h3>
-
-                <p class="education-institution">
-                    Jafarganj Mir Abdul Gafur College
-                </p>
-
-                <div class="education-result">
-                    <span>GPA</span>
-                    <strong>3.42 / 5.00</strong>
-                </div>
-            </article>
-
-            <!-- SSC -->
-            <article class="education-card">
-                <div class="education-card-header">
-                    <span class="education-marker">&gt;_</span>
-                    <span class="education-period">2016 - 2018</span>
-                </div>
-
-                <h3>Secondary School Certificate (SSC)</h3>
-
-                <p class="education-institution">
-                    Debidwar Govt. Reaz Uddin Pilot Model High School
-                </p>
-
-                <div class="education-result">
-                    <span>GPA</span>
-                    <strong>3.00 / 5.00</strong>
-                </div>
-            </article>
-
+                    @if (!string.IsNullOrWhiteSpace(edu.Result))
+                    {
+                        <div class="education-result">
+                            <span>Result</span>
+                            <strong>@edu.Result</strong>
+                        </div>
+                    }
+                </article>
+            }
         </div>
     </div>
 </section>
 
-                    <!-- Skills -->
-
+<!-- Skills (from database) -->
 <section id="skills" class="skills-section">
     <div class="container">
         <p class="section-label">// Skills</p>
-        <h2 class="section-title">Technical & Professional Skills</h2>
+        <h2 class="section-title">Technical &amp; Professional Skills</h2>
 
-        @if (ViewBag.SkillCategories != null)
+        @foreach (var category in Model.SkillCategories)
         {
-            foreach (var categoty in ViewBag.SkillCategories)
-            {
-                <div class="skill-category">
-                    <h3>
-                        <span class="skill-prompt">&gt;_</span>
-                        @categoty.Name
-                    </h3>
+            <div class="skill-category">
+                <h3><span class="skill-prompt">&gt;_</span> @category.Name</h3>
 
-                    @if (categoty.Skills != null)
+                <div class="skill-grid">
+                    @foreach (var skill in category.Skills)
                     {
-                        <div class="skills-grid">
-                            @foreach (var skill in categoty.Skills)
-                            {
-                                <article class="skill-card">
-                                    <h4>@skill.Name</h4>
-                                    <p>@skill.Description</p>
-                                </article>
-
-                            }
-                        </div>
-
+                        <article class="skill-card" data-reveal>
+                            <h4>@skill.Name</h4>
+                            <p>@skill.Description</p>
+                        </article>
                     }
                 </div>
-
-            }
+            </div>
         }
     </div>
 </section>
 
+<!-- Experience (from database) -->
+<section id="experience" class="experience-section">
+    <div class="container">
+        <p class="section-label">// Experience</p>
+        <h2 class="section-title">Professional Experience</h2>
 
-                        <!-- Tools Section-->
+        <div class="timeline">
+            @foreach (var job in Model.Experiences)
+            {
+                <article class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <div class="timeline-card">
+                        <div class="timeline-head">
+                            <h3>@job.JobTitle</h3>
+                            <span class="education-period">
+                                @job.StartDate.ToString("MMM yyyy") &ndash;
+                                @(job.IsCurrent || job.EndDate == null ? "Present" : job.EndDate.Value.ToString("MMM yyyy"))
+                            </span>
+                        </div>
 
+                        <p class="timeline-company">
+                            @job.Company
+                            @if (!string.IsNullOrWhiteSpace(job.Location))
+                            {
+                                <span class="timeline-location">&middot; @job.Location</span>
+                            }
+                        </p>
+
+                        @if (!string.IsNullOrWhiteSpace(job.Description))
+                        {
+                            <p class="timeline-desc">@job.Description</p>
+                        }
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Projects (from database) -->
+<section id="projects" class="projects-section">
+    <div class="container">
+        <p class="section-label">// Projects</p>
+        <h2 class="section-title">Featured Projects</h2>
+
+        @if (Model.Projects.Count == 0)
+        {
+            <p class="empty-note">Projects will be added soon.</p>
+        }
+        else
+        {
+            <div class="project-grid">
+                @foreach (var project in Model.Projects)
+                {
+                    <article class="project-card" data-reveal>
+                        <h3>@project.Title</h3>
+                        <p>@project.ShortDescription</p>
+
+                        @if (!string.IsNullOrWhiteSpace(project.Technologies))
+                        {
+                            <ul class="tech-tags">
+                                @foreach (var tech in project.Technologies.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+                                {
+                                    <li>@tech</li>
+                                }
+                            </ul>
+                        }
+
+                        <div class="project-links">
+                            @if (!string.IsNullOrWhiteSpace(project.GithubUrl))
+                            {
+                                <a href="@project.GithubUrl" target="_blank" rel="noopener noreferrer">
+                                    <i class="bi bi-github" aria-hidden="true"></i> Code
+                                </a>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(project.LiveDemoUrl))
+                            {
+                                <a href="@project.LiveDemoUrl" target="_blank" rel="noopener noreferrer">
+                                    <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Live Demo
+                                </a>
+                            }
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Tools (from database) -->
 <section id="tools" class="tools-section">
     <div class="container">
         <p class="section-label">// Tools</p>
-        <h2 class="section-title">Tools & Techonologies</h2>
+        <h2 class="section-title">Tools &amp; Technologies</h2>
 
         <div class="tools-grid">
-            @if (ViewBag.Tools != null)
+            @foreach (var tool in Model.Tools)
             {
-                foreach (var tool in ViewBag.Tools)
-                {
-                    <article class="tool-card">
-                        <div class="tool-icon">
-                            <i class="@tool.IconClass" aria-hidden="true"></i>
-                        </div>
-
-                        <h3>@tool.Name</h3>
-                        <p class="tool-category">@tool.Category</p>
-                        <p class="tool-description">@tool.Description</p>
-                    </article>
-                }
+                <article class="tool-card" data-reveal>
+                    <div class="tool-icon"><i class="@tool.IconClass" aria-hidden="true"></i></div>
+                    <h3>@tool.Name</h3>
+                    <p class="tool-category">@tool.Category</p>
+                    <p class="tool-description">@tool.Description</p>
+                </article>
             }
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <p class="section-label">// Contact</p>
+        <h2 class="section-title">Get In Touch</h2>
+
+        @if (TempData["ContactSuccess"] is string okMessage)
+        {
+            <div class="alert alert-success" role="status">@okMessage</div>
+        }
+        @if (TempData["ContactError"] is string errorMessage)
+        {
+            <div class="alert alert-danger" role="alert">@errorMessage</div>
+        }
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p>
+                    I'm open to IT support, MIS, data management and sales operations
+                    roles. Send me a message and I will reply as soon as possible.
+                </p>
+
+                <ul class="contact-list">
+                    @if (!string.IsNullOrWhiteSpace(email))
+                    {
+                        <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:@email">@email</a></li>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(phone))
+                    {
+                        <li>
+                            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                            <a href="https://wa.me/@(phone.Replace("+", "").Replace(" ", ""))" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        </li>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(profile?.Location))
+                    {
+                        <li><i class="bi bi-geo-alt" aria-hidden="true"></i>@profile.Location</li>
+                    }
+                </ul>
+
+                <div class="social-links">
+                    @foreach (var link in Model.SocialLinks)
+                    {
+                        <a href="@link.Url" target="_blank" rel="noopener noreferrer">
+                            <i class="@link.IconClass" aria-hidden="true"></i> @link.Platform
+                        </a>
+                    }
+                </div>
+            </div>
+
+            <form asp-controller="Home" asp-action="Contact" method="post" class="contact-form">
+                <div class="visually-hidden" aria-hidden="true">
+                    <label for="Website">Leave this field empty</label>
+                    <input type="text" id="Website" name="Website" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" id="Name" name="Name" class="form-control" maxlength="150" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" id="Email" name="Email" class="form-control" maxlength="255" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Subject" class="form-label">Subject</label>
+                    <input type="text" id="Subject" name="Subject" class="form-control" maxlength="250" required />
+                </div>
+                <div class="mb-3">
+                    <label for="Message" class="form-label">Message</label>
+                    <textarea id="Message" name="Message" class="form-control" rows="5" minlength="10" maxlength="2000" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary hero-btn">
+                    Send Message <i class="bi bi-send" aria-hidden="true"></i>
+                </button>
+            </form>
         </div>
     </div>
 </section>

@@ -14,7 +14,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         [Required]
         public string ReplyText { get; set; } = string.Empty;
 
-        public DateTime RepliedAd { get; set; }
+        public DateTime RepliedAt { get; set; }
 
         public bool EmailSent { get; set; }
 

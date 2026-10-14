@@ -1,4 +1,4 @@
-﻿# Visiul Studio
+﻿# Visual Studio
 .vs/
 *.user
 *.suo
@@ -28,3 +28,11 @@ Thumbs.db
 
 # Publish output
 publish/
+
+# Local database files
+*.mdf
+*.ldf
+ 
+# Production settings and uploads
+appsettings.Production.json
+wwwroot/uploads/

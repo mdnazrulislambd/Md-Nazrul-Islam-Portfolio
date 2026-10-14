@@ -47,6 +47,6 @@ namespace Md.Nazrul.Islam.Portfolio.Models
 
         public DateTime? UpdatedAt { get; set; }
 
-        public ICollection<ProjectImage> projectImages { get; set; } = new List<ProjectImage>();
+        public ICollection<ProjectImage> ProjectImages { get; set; } = new List<ProjectImage>();
     }
 }

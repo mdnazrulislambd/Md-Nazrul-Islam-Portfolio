@@ -4,7 +4,7 @@
     {
         public string GetSiteName()
         {
-            return "MD. Nazrul Isalm";
+            return "MD. Nazrul Islam";
         }
     }
 }

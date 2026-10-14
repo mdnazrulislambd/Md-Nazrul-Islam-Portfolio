@@ -14,7 +14,7 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         public string ImageUrl { get; set; } = string.Empty;
 
         [MaxLength(250)]
-        public string? AltTexe { get; set; }
+        public string? AltText { get; set; }
 
         public int DisplayOrder { get; set; }
 
