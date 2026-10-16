@@ -90,7 +90,7 @@ namespace Md.Nazrul.Islam.Portfolio.Controllers
 
             if(!ModelState.IsValid)
             {
-                TempData["contactError"] = "Pleace check your input and try again";
+                TempData["contactError"] = "Please check your input and try again";
                 return Redirect("/#contact");
             }
 

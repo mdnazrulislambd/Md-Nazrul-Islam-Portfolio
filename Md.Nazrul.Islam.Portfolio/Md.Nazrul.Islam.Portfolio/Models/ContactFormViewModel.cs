@@ -17,6 +17,6 @@ namespace Md.Nazrul.Islam.Portfolio.Models
         public string Message {  get; set; } = string.Empty;
 
         // Honeypot: real visitors never see or fill this field
-        public string Website { get; set; }
+        public string? Website { get; set; }
     }
 }
