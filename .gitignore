@@ -33,6 +33,12 @@ publish/
 *.mdf
 *.ldf
  
+*.sln.docstates
+
+# Publish profiles
+**/Properties/PublishProfiles/
+*.pubxml
+
 # Production settings and uploads
 appsettings.Production.json
-wwwroot/uploads/
+**/wwwroot/uploads/
