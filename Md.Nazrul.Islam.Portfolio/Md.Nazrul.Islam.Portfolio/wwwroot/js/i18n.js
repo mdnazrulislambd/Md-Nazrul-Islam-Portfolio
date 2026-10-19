@@ -32,6 +32,7 @@
         "Open to professional opportunities": "পেশাদার সুযোগের জন্য উন্মুক্ত",
         "IT Support & Data Operations Professional": "আইটি সাপোর্ট ও ডেটা অপারেশন্স পেশাদার",
         "Currently learning": "বর্তমানে শিখছি",
+        "Scroll": "স্ক্রল",
         "3+ years": "৩+ বছর",
         "distributor operations": "ডিস্ট্রিবিউটর অপারেশন্স",
         "Excel & MIS": "এক্সেল ও এমআইএস",

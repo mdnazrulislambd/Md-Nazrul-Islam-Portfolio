@@ -2,6 +2,7 @@ using Md.Nazrul.Islam.Portfolio.Data;
 using Md.Nazrul.Islam.Portfolio.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +29,16 @@ builder.Services.AddRateLimiter(options =>
                 Window = TimeSpan.FromMinutes(10)
             }));
 });
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
+});
 
 var app = builder.Build();
+
+app.UseForwardedHeaders();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

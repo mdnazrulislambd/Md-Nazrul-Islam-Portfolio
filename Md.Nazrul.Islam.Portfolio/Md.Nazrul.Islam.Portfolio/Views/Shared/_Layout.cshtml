@@ -1,18 +1,29 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    @{
+        var baseUrl = $"{Context.Request.Scheme}://{Context.Request.Host}";
+        var ogImage = $"{baseUrl}/images/og-image.png?v=1";
+    }
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Md. Nazrul Islam - IT Support, Computer Operations, MIS and Data Management professional from Dhaka, Bangladesh." />
     <meta name="theme-color" content="#031624" />
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Md. Nazrul Islam - Portfolio" />
     <meta property="og:description" content="IT Support, Computer Operations, MIS and Data Management." />
+    <meta property="og:url" content="@baseUrl/" />
+    <meta property="og:image" content="@ogImage" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="@ogImage" />
+
     <title>@ViewData["Title"] - Md. Nazrul Islam</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -23,8 +34,6 @@
     <link rel="icon" href="~/favicon.ico" sizes="48x48" />
     <link rel="icon" href="~/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="~/apple-touch-icon.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:image" content="https://nazrul.com/og-image.png" />
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to content</a>
@@ -98,6 +107,7 @@
     </script>
     <script src="~/js/theme.js" asp-append-version="true"></script>
     <script src="~/js/i18n.js" asp-append-version="true"></script>
+    <script src="~/js/hero.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
