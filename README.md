@@ -37,4 +37,4 @@ projects, tools and contact information through a data-driven web application.
 
 ## Status
 
-Project is currently under development.
+Project Version_1.0.0 Is Publishes --> https://nazrul.tryasp.net/
