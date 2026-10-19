@@ -30,6 +30,18 @@
         "Contact Me": "আমার সাথে যোগাযোগ",
         "Download CV": "সিভি ডাউনলোড",
         "Open to professional opportunities": "পেশাদার সুযোগের জন্য উন্মুক্ত",
+        "IT Support & Data Operations Professional": "আইটি সাপোর্ট ও ডেটা অপারেশন্স পেশাদার",
+        "Currently learning": "বর্তমানে শিখছি",
+        "3+ years": "৩+ বছর",
+        "distributor operations": "ডিস্ট্রিবিউটর অপারেশন্স",
+        "Excel & MIS": "এক্সেল ও এমআইএস",
+        "daily sales reporting": "দৈনিক সেলস রিপোর্টিং",
+        "Marico & Godrej": "ম্যারিকো ও গোদরেজ",
+        "FMCG distributors": "এফএমসিজি ডিস্ট্রিবিউটর",
+        "Open to work": "কাজের সুযোগের জন্য উন্মুক্ত",
+        "IT Support, MIS & Data roles in Dhaka": "ঢাকায় আইটি সাপোর্ট, এমআইএস ও ডেটা সংক্রান্ত পদে",
+        "IT support, MIS reporting and data management for FMCG distributors, with a developer's mindset.":
+            "এফএমসিজি ডিস্ট্রিবিউটরদের জন্য আইটি সাপোর্ট, এমআইএস রিপোর্টিং ও ডেটা ম্যানেজমেন্ট, একজন ডেভেলপারের মানসিকতা নিয়ে।",
 
         /* ---------- about ---------- */
         "// About Me": "// আমার সম্পর্কে",
@@ -171,7 +183,7 @@
     };
 
     /* Words the hero typing effect cycles through */
-    var TYPED_BN = "আইটি সাপোর্ট|কম্পিউটার অপারেশন্স|এমআইএস ও ডেটা ম্যানেজমেন্ট|সেলস অপারেশন্স";
+    var TYPED_BN = "সি#|এএসপি.নেট কোর|এসকিউএল সার্ভার";
 
     /* ---------- numbers, months, patterns ---------- */
     var DIGITS = "০১২৩৪৫৬৭৮৯";

@@ -1,0 +1,394 @@
+﻿/* ---- STEP 1: headline + "currently learning" line ---- */
+.hero-title {
+    margin-bottom: 12px;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.5;
+}
+
+.hero-learning {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 10px;
+    margin: 0 0 20px;
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.7;
+    min-height: 1.7em; /* the paragraph below never moves while the words change */
+}
+
+.hero-learning-label::before {
+    content: ">";
+    margin-right: 8px;
+    color: #2ce5d4;
+}
+
+/* min-width keeps the line from jumping while the words change length */
+.hero-learning-words {
+    min-width: 12ch;
+    color: #2ce5d4;
+    font-weight: 600;
+}
+
+/* phones and tablets: the whole hero is centred */
+@media (max-width: 991.98px) {
+    .hero-learning {
+        justify-content: center;
+    }
+}
+
+html[data-theme="light"] .hero-learning {
+    color: #526173;
+}
+
+html[data-theme="light"] .hero-learning-label::before,
+html[data-theme="light"] .hero-learning-words {
+    color: #0f766e;
+}
+
+/* ---- STEP 2: one clear main button + social icons ---- */
+.hero-social {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .hero-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid rgba(44, 229, 212, 0.3);
+        border-radius: 50%;
+        color: #cbd5e1;
+        font-size: 1.15rem;
+        text-decoration: none;
+        transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+        .hero-social a:hover {
+            border-color: #2ce5d4;
+            background: rgba(44, 229, 212, 0.14);
+            color: #2ce5d4;
+            transform: translateY(-3px);
+        }
+
+@media (max-width: 991.98px) {
+    .hero-social {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-social a {
+        transition: none;
+    }
+
+        .hero-social a:hover {
+            transform: none;
+        }
+}
+
+html[data-theme="light"] .hero-social a {
+    border-color: rgba(15, 23, 42, 0.22);
+    color: #334155;
+}
+
+    html[data-theme="light"] .hero-social a:hover {
+        border-color: #0f766e;
+        background: rgba(15, 118, 110, 0.1);
+        color: #0f766e;
+    }
+
+/* ---- STEP 3: proof line + "open to work" pill ---- */
+.hero-proof {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    margin: 28px 0 0;
+    padding: 20px 0 0;
+    max-width: 600px;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+    list-style: none;
+}
+
+    .hero-proof li {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 0 24px;
+        border-left: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+        .hero-proof li:first-child {
+            padding-left: 0;
+            border-left: 0;
+        }
+
+    .hero-proof strong {
+        color: #f0fdfa;
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.35;
+    }
+
+    .hero-proof span {
+        color: #94a3b8;
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
+
+/* the status pill: green = available */
+.hero-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 9px 16px;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    border-radius: 18px;
+    background: rgba(34, 197, 94, 0.08);
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+    .hero-availability strong {
+        margin-right: 6px;
+        color: #f0fdfa;
+    }
+
+.availability-dot {
+    background-color: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    animation: availabilityPulse 2.2s ease-out infinite;
+}
+
+@keyframes availabilityPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55);
+    }
+
+    70% {
+        box-shadow: 0 0 0 9px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-proof {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+        .hero-proof li {
+            padding: 0 10px;
+            text-align: center;
+        }
+
+            .hero-proof li:first-child {
+                padding-left: 10px;
+            }
+
+        .hero-proof strong {
+            font-size: 0.82rem;
+        }
+
+        .hero-proof span {
+            font-size: 0.72rem;
+        }
+
+    .hero-availability {
+        text-align: left;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .hero-proof {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .availability-dot {
+        animation: none;
+    }
+}
+
+html[data-theme="light"] .hero-proof {
+    border-top-color: rgba(15, 23, 42, 0.14);
+}
+
+    html[data-theme="light"] .hero-proof li {
+        border-left-color: rgba(15, 23, 42, 0.14);
+    }
+
+    html[data-theme="light"] .hero-proof strong {
+        color: #0f172a;
+    }
+
+    html[data-theme="light"] .hero-proof span {
+        color: #526173;
+    }
+
+html[data-theme="light"] .hero-availability {
+    border-color: rgba(22, 163, 74, 0.4);
+    background: rgba(22, 163, 74, 0.08);
+    color: #334155;
+}
+
+    html[data-theme="light"] .hero-availability strong {
+        color: #0f172a;
+    }
+
+html[data-theme="light"] .availability-dot {
+    background-color: #16a34a;
+}
+
+/* ---- STEP 4: photo card for the transparent cutout ---- */
+/* the stacking context lives on the column, so the outline (z-index -1) paints BEHIND the card */
+.hero-image-column {
+    isolation: isolate;
+}
+
+.hero-photo {
+    position: relative;
+    width: min(100%, 380px);
+    aspect-ratio: 4 / 5;
+    border: 1px solid rgba(44, 229, 212, 0.28);
+    border-radius: 28px;
+    background: radial-gradient(circle at 50% 36%, rgba(44, 229, 212, 0.32), transparent 58%), linear-gradient(rgba(44, 229, 212, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(44, 229, 212, 0.05) 1px, transparent 1px), linear-gradient(160deg, rgba(44, 229, 212, 0.14), rgba(59, 130, 246, 0.12) 55%, rgba(3, 22, 36, 0.7)), #071a2c; /* solid base: hides the offset outline behind the card */
+    background-size: auto, 28px 28px, 28px 28px, auto;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+    /* an offset outline behind the card gives depth */
+    .hero-photo::after {
+        content: "";
+        position: absolute;
+        inset: 16px -16px -16px 16px;
+        z-index: -1;
+        border: 1px solid rgba(44, 229, 212, 0.35);
+        border-radius: 28px;
+    }
+
+/* Clips only the bottom corners, so the head may rise above the top edge of the card */
+.hero-photo-clip {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(-30% 0 0 0 round 0 0 27px 27px);
+}
+
+.hero-photo-img {
+    position: absolute;
+    bottom: 0;
+    left: -4%; /* 108% wide, centred: the head rises above the card, shoulders touch the sides */
+    display: block;
+    width: 108%;
+    max-width: none;
+    height: auto;
+    filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.35));
+}
+
+@media (max-width: 991.98px) {
+    .hero-photo {
+        width: min(100%, 320px);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-photo {
+        width: min(100%, 270px);
+        border-radius: 24px;
+    }
+
+        .hero-photo::after {
+            inset: 12px -12px -12px 12px;
+            border-radius: 24px;
+        }
+
+    .hero-photo-clip {
+        clip-path: inset(-30% 0 0 0 round 0 0 23px 23px);
+    }
+}
+
+html[data-theme="light"] .hero-photo {
+    border-color: rgba(15, 118, 110, 0.28);
+    background: radial-gradient(circle at 50% 36%, rgba(44, 229, 212, 0.35), transparent 58%), linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px), linear-gradient(160deg, #e3f5f3, #dbe6fb 60%, #eef2f7);
+    background-size: auto, 28px 28px, 28px 28px, auto;
+    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.16);
+}
+
+    html[data-theme="light"] .hero-photo::after {
+        border-color: rgba(15, 118, 110, 0.35);
+    }
+
+html[data-theme="light"] .hero-photo-img {
+    filter: drop-shadow(0 14px 20px rgba(15, 23, 42, 0.22));
+}
+
+/* ---- STEP 5: phones and tablets ---- */
+@media (max-width: 991.98px) {
+    /* the face comes first, then the words */
+    .hero-image-column {
+        order: -1;
+    }
+
+    /* the Bootstrap gap between the two stacked columns is 3rem: too much on a phone */
+    .hero-section .row.gy-5 {
+        --bs-gutter-y: 1.5rem;
+    }
+
+    .hero-section {
+        padding-top: 96px;
+        padding-bottom: 48px;
+    }
+
+    .hero-photo {
+        width: min(100%, 240px);
+    }
+
+    /* no lonely last word on a line */
+    .hero-title,
+    .hero-description {
+        text-wrap: balance;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        padding-top: 98px;
+        padding-bottom: 40px;
+    }
+
+    /* a compact version of the same card (same shape language as the desktop one) */
+    .hero-photo {
+        width: 156px;
+        border-radius: 20px;
+    }
+
+        .hero-photo::after {
+            inset: 8px -8px -8px 8px;
+            border-radius: 20px;
+        }
+
+    .hero-photo-clip {
+        clip-path: inset(-30% 0 0 0 round 0 0 19px 19px);
+    }
+
+    .hero-greeting {
+        margin-bottom: 8px;
+    }
+
+    /* comfortable thumb size */
+    .hero-social a {
+        width: 44px;
+        height: 44px;
+    }
+}

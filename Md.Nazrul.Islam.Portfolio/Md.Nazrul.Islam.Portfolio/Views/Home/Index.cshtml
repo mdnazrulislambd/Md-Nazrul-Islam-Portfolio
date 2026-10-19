@@ -4,6 +4,12 @@
     var profile = Model.profile;
     var email = profile?.Email;
     var phone = profile?.Phone;
+
+    // Only the two professional profiles go in the hero
+    var heroSocials = Model.SocialLinks
+        .Where(s => s.Platform.Equals("GitHub", StringComparison.OrdinalIgnoreCase)
+                 || s.Platform.Equals("LinkedIn", StringComparison.OrdinalIgnoreCase))
+        .ToList();
 }
 
 <!-- Hero -->
@@ -15,47 +21,65 @@
                 <p class="hero-greeting">HELLO, I'M</p>
 
                 <h1 class="hero-name">@(profile?.FullName ?? "Md. Nazrul Islam")</h1>
+                <h2 class="hero-title">IT Support &amp; Data Operations Professional</h2>
 
-                <h2 class="hero-title">
-                    <span id="typed-text" data-words="IT Support|Computer Operations|MIS &amp; Data Management|Sales Operations">IT Support</span><span class="typed-cursor" aria-hidden="true">|</span>
-                </h2>
-
-                <p class="hero-specialties">
-                    MIS &amp; Data Management
-                    <span>|</span>
-                    Sales Operations
+                <p class="hero-learning">
+                    <span class="hero-learning-label">Currently learning</span>
+                    <span class="hero-learning-words"><span id="typed-text" data-words="C#|ASP.NET Core|SQL Server">C#</span><span class="typed-cursor" aria-hidden="true">|</span></span>
                 </p>
 
                 <p class="hero-description">
-                    I bring together technology, data management, and
-                    operational experience to support reliable digital
-                    workflows and efficient business operations.
+                    IT support, MIS reporting and data management for FMCG distributors,
+                    with a developer's mindset.
                 </p>
-
                 <div class="hero-buttons">
-                    <a href="/#projects" class="btn btn-primary hero-btn">
-                        View My Projects
-                        <span aria-hidden="true">&rarr;</span>
-                    </a>
-                    <a href="/#contact" class="btn btn-outline-light hero-btn">Contact Me</a>
-                    <a href="@(profile?.CVUrl ?? "/files/Md_Nazrul_Islam_CV.pdf")" class="btn btn-outline-info hero-btn" download>
+                    <a href="@(profile?.CVUrl ?? "/files/Md_Nazrul_Islam_CV.pdf")" class="btn btn-primary hero-btn" download>
                         Download CV
                         <span aria-hidden="true">&darr;</span>
                     </a>
+                    <a href="/#projects" class="btn btn-outline-light hero-btn">
+                        View My Projects
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
                 </div>
 
+                @if (heroSocials.Count > 0)
+                {
+                    <ul class="hero-social" aria-label="Social profiles">
+                        @foreach (var link in heroSocials)
+                        {
+                            <li>
+                                <a href="@link.Url" target="_blank" rel="noopener noreferrer"
+                                   aria-label="@link.Platform" title="@link.Platform">
+                                    <i class="@link.IconClass" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                }
+
+                <ul class="hero-proof">
+                    <li><strong>3+ years</strong><span>distributor operations</span></li>
+                    <li><strong>Excel &amp; MIS</strong><span>daily sales reporting</span></li>
+                    <li><strong>Marico &amp; Godrej</strong><span>FMCG distributors</span></li>
+                </ul>
+
                 <div class="hero-availability">
-                    <span class="availability-dot"></span>
-                    Open to professional opportunities
+                    <span class="availability-dot" aria-hidden="true"></span>
+                    <span><strong>Open to work</strong> IT Support, MIS &amp; Data roles in Dhaka</span>
                 </div>
             </div>
 
             <div class="col-lg-5 hero-image-column">
-                <div class="hero-image-frame">
-                    <img src="~/images/nazrul-profile.jpg"
-                         asp-append-version="true"
-                         alt="Portrait of Md. Nazrul Islam"
-                         class="hero-profile-image" />
+                <div class="hero-photo">
+                    <div class="hero-photo-clip">
+                        <img src="~/images/nazrul-cutout.webp"
+                             asp-append-version="true"
+                             alt="Portrait of Md. Nazrul Islam"
+                             class="hero-photo-img"
+                             fetchpriority="high"
+                             decoding="async" />
+                    </div>
                 </div>
             </div>
 

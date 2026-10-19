@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Md.Nazrul.Islam.Portfolio.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hero.css" asp-append-version="true" />
     <link rel="icon" href="~/favicon.ico" sizes="48x48" />
     <link rel="icon" href="~/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="~/apple-touch-icon.png" />
@@ -32,16 +33,27 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark site-navbar fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img src="~/images/brand/logo-icon-animated.svg" alt="" width="34" height="34" />
-                        <span class="brand-name" data-no-i18n>Md. Nazrul Islam</span>
-                    </a>
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/brand/logo-icon-animated.svg" alt="" width="34" height="34" />
+                    <span class="brand-name" data-no-i18n>Md. Nazrul Islam</span>
                 </a>
+
+                <div class="nav-tools order-lg-last ms-auto ms-lg-3 me-2 me-lg-0">
+                    <button type="button" class="nav-tool-btn theme-toggle" aria-label="Toggle theme / থিম পরিবর্তন">
+                        <i class="bi bi-sun icon-sun" aria-hidden="true"></i>
+                        <i class="bi bi-moon-stars icon-moon" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="nav-tool-btn lang-toggle" aria-label="Change language / ভাষা পরিবর্তন">
+                        <span class="lang-to-bn">বাংলা</span>
+                        <span class="lang-to-en">EN</span>
+                    </button>
+                </div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
                         aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="mainNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="home" data-section="home">Home</a></li>
@@ -53,16 +65,6 @@
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index" asp-fragment="tools" data-section="tools">Tools</a></li>
                         <li class="nav-item ms-lg-3"><a class="btn btn-sm btn-outline-info nav-cta" asp-controller="Home" asp-action="Index" asp-fragment="contact">Let's talk</a></li>
                     </ul>
-                </div>
-                <div class="nav-tools order-lg-last ms-auto ms-lg-3 me-2 me-lg-0">
-                    <button type="button" class="nav-tool-btn theme-toggle" aria-label="Toggle theme / থিম পরিবর্তন">
-                        <i class="bi bi-sun icon-sun" aria-hidden="true"></i>
-                        <i class="bi bi-moon-stars icon-moon" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="nav-tool-btn lang-toggle" aria-label="Change language / ভাষা পরিবর্তন">
-                        <span class="lang-to-bn">বাংলা</span>
-                        <span class="lang-to-en">EN</span>
-                    </button>
                 </div>
             </div>
         </nav>
